@@ -2,16 +2,16 @@ var friendArray = [
     {
     name: "Joker",
     image: "./images/download.jpg",
-    q0: 5,
-    q1: 1,
-    q2: 5,
-    q3: 1,
-    q4: 5,
-    q5: 1,
-    q6: 5,
-    q7: 1,
-    q8: 1,
-    q9: 5
+    Q0: 5,
+    Q1: 1,
+    Q2: 5,
+    Q3: 1,
+    Q4: 5,
+    Q5: 1,
+    Q6: 5,
+    Q7: 1,
+    Q8: 1,
+    Q9: 5
     }
 ]
 

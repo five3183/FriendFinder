@@ -286,6 +286,8 @@ $("#sendSurvey").on("click", function() {
     let friend = {
         name: $("#name").val(),
         photo: $("#photo").val(),
+
+        
         Q0: parseInt($("input[name='Q0']:checked").val()),
         Q1: parseInt($("input[name='Q1']:checked").val()),
         Q2: parseInt($("input[name='Q2']:checked").val()),
@@ -296,11 +298,23 @@ $("#sendSurvey").on("click", function() {
         Q7: parseInt($("input[name='Q7']:checked").val()),
         Q8: parseInt($("input[name='Q8']:checked").val()),
         Q9: parseInt($("input[name='Q9']:checked").val())
-    }
-    console.log(friend)
 
-    $.post("/api/survey", friend, 
-    function (data) {
+        // Q0: $("input[name='Q0']:checked").val(),
+        // Q1: $("input[name='Q1']:checked").val(),
+        // Q2: $("input[name='Q2']:checked").val(),
+        // Q3: $("input[name='Q3']:checked").val(),
+        // Q4: $("input[name='Q4']:checked").val(),
+        // Q5: $("input[name='Q5']:checked").val(),
+        // Q6: $("input[name='Q6']:checked").val(),
+        // Q7: $("input[name='Q7']:checked").val(),
+        // Q8: $("input[name='Q8']:checked").val(),
+        // Q9: $("input[name='Q9']:checked").val()
+    }
+    console.log('friend: ', friend);
+
+    $.post("/api/survey", friend, function(data) {
+        documen
+        console.log(data)
     })
         
 })
