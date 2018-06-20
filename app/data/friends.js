@@ -1,7 +1,7 @@
 var friendArray = [
     {
     name: "Joker",
-    image: "./images/download.jpg",
+    image: "https://78.media.tumblr.com/8d538290c1e4bf71a955f1b4bf566d81/tumblr_mi05bv9MhC1rvnbhio1_400.gif",
     Q0: 5,
     Q1: 1,
     Q2: 5,

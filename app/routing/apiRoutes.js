@@ -9,7 +9,7 @@ module.exports = function (app) {
     app.post("/api/survey", function (req, res) {
         var bestMatch = {
             name: "",
-            photo: "", 
+            image: "", 
             friendValue: 50
         }
 
@@ -36,7 +36,7 @@ module.exports = function (app) {
 
             if (friendValue <= bestMatch.friendValue){
                 bestMatch.name = friendArray[i].name
-                bestMatch.photo = friendArray[i].image
+                bestMatch.image = friendArray[i].image
                 bestMatch.friendValue = friendValue
             }
         }
