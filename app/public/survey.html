@@ -253,7 +253,7 @@
                     </form>
                 </div>
                 <hr>
-                <button class="btn btn-danger btn-lg" type="submit" value="Submit" id="sendSurvey" data-toggle="modal" data-target="#friendMatch">Submit</button>
+                <button class="btn btn-danger btn-lg" type="submit" value="Submit" id="sendSurvey">Submit</button>
             </div>
         </div>
         <br><br><br>
@@ -264,15 +264,21 @@
                     <div class="modal-header">
                         <h2 class="modal-title" id="bestMatch">Best Match!</h2>
                     </div>
-                    <div class="modal-body" id="friendImage">
+                    <div class="modal-body">
+                        <h2 id="matchName"></h2>
+                        <img id="matchImage">
                     </div>
                 </div>
             </div>
         </div>
         <!--modal end-->
-        <a href="/api/survey">API Friends</a>
-        |
-        <a href="https://github.com/five3183/friendfinder">GIT REPO</a>
+        <footer>
+            <div class="container">
+                <a href="/api/survey">API Friends</a>
+                |
+                <a href="https://github.com/five3183/friendfinder">GIT REPO</a>
+            </div>
+        </footer>
     </div>
 
   
@@ -283,11 +289,11 @@
 
 $("#sendSurvey").on("click", function() {
     event.preventDefault()
-    let friend = {
+    let userData = {
+
         name: $("#name").val(),
         photo: $("#photo").val(),
 
-        
         Q0: parseInt($("input[name='Q0']:checked").val()),
         Q1: parseInt($("input[name='Q1']:checked").val()),
         Q2: parseInt($("input[name='Q2']:checked").val()),
@@ -299,36 +305,16 @@ $("#sendSurvey").on("click", function() {
         Q8: parseInt($("input[name='Q8']:checked").val()),
         Q9: parseInt($("input[name='Q9']:checked").val())
 
-        // Q0: $("input[name='Q0']:checked").val(),
-        // Q1: $("input[name='Q1']:checked").val(),
-        // Q2: $("input[name='Q2']:checked").val(),
-        // Q3: $("input[name='Q3']:checked").val(),
-        // Q4: $("input[name='Q4']:checked").val(),
-        // Q5: $("input[name='Q5']:checked").val(),
-        // Q6: $("input[name='Q6']:checked").val(),
-        // Q7: $("input[name='Q7']:checked").val(),
-        // Q8: $("input[name='Q8']:checked").val(),
-        // Q9: $("input[name='Q9']:checked").val()
     }
-    console.log('friend: ', friend);
 
-    $.post("/api/survey", friend, function(data) {
-        documen
-        console.log(data)
+    var currentURL = window.location.origin
+
+
+    $.post(currentURL + "/api/survey", userData, function(data) {
+        $("#matchName").text(data.name)
+        $("#matchImage").attr("src", data.image)
+        $("#friendMatch").modal("toggle")
     })
         
 })
-
-function runFrinedQuery() {
-    var currentURL = window.location.origin
-
-    $.ajax({url: currentURL + "/api/survey", method: "GET"})
-        .done(function(friendData) {
-            for(i = 0; i < friendData.length; i++) {
-                var friendDisplay = $("<div>")
-                $("#frinedImage").append("<img>" + friendData[0].photo)
-                $("#bestMatch").append(friendData[0].name)
-            }
-        })
-}
 </script>
